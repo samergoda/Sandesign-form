@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Form Sandesign</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info {
+            padding: 10px 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+            padding-bottom: 30px;
+
+            nav {
+                height: 130px;
+            }
+
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #92509F;
+            border-radius: 4px;
+        }
+
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: #EF4B91 auto 1px;
+        }
+
+        .option-inputs {
+            display: none;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #92509F;
+            color: #fff;
+            border: 0;
+            padding: 8px 12px;
+        }
+
+        input[type="file"] {
+            border: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <p class='info'>Customize your design 💜</p>
+
+
+
+
+
+    <h1>Please fill in your information</h1>
+    <form id="deliveryForm">
+        <div class="">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <label for="mobile">What'sApp Number:</label>
+        <input type="tel" id="mobile" name="mobile" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="deliveryOption">Select your item </label>
+        <select id="deliveryOption" name="deliveryOption" required>
+            <option value="">Choose an option</option>
+            <option value="1">Note Book</option>
+            <option value="2">Frame</option>
+            <option value="3">Medal</option>
+        </select>
+
+        <div id="option1Inputs" class="option-inputs">
+            <label for="input1">write your favorite color</label>
+            <textarea name="sheet" id=""></textarea>
+        </div>
+
+        <div id="option2Inputs" class="option-inputs">
+            <label for="input2">select your option</label>
+            <select name="size" id="">
+                <option value="15*21">15*21</option>
+                <option value="20*25">20*25</option>
+                <option value="30*20">30*20</option>
+                <option value="30*40">30*40</option>
+            </select>
+            <select name="color" id="">
+                <option value="black">black</option>
+                <option value="white">white</option>
+            </select>
+        </div>
+
+        <div id="option3Inputs" class="option-inputs">
+
+        </div>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1 " required>
+
+        <label for="attachment">Choose your photo:</label>
+        <!-- <input type="file" id="attachment" name="attachment" accept="image/*"> -->
+
+        <input type="submit" value="Submit" style="margin-top: 20px;">
+    </form>
+
+    <script>
+        const deliveryOption = document.getElementById('deliveryOption');
+        const option1Inputs = document.getElementById('option1Inputs');
+        const option2Inputs = document.getElementById('option2Inputs');
+        const option3Inputs = document.getElementById('option3Inputs');
+
+        deliveryOption.addEventListener('change', (e) => {
+            option1Inputs.style.display = 'none';
+            option2Inputs.style.display = 'none';
+            option3Inputs.style.display = 'none';
+
+            if (e.target.value === '1') {
+                option1Inputs.style.display = 'block';
+            } else if (e.target.value === '2') {
+                option2Inputs.style.display = 'block';
+            } else if (e.target.value === '3') {
+                option3Inputs.style.display = 'block';
+            }
+        });
+
+        // document.getElementById('deliveryForm').addEventListener('submit', async function (e) {
+        //     e.preventDefault();
+
+        //     const formData = new FormData(this);
+        //     let message = 'New Delivery Form Submission:\n\n';
+
+        //     for (let [key, value] of formData.entries()) {
+        //         if (key !== 'attachment') {
+        //             message += `${key}: ${value}\n`;
+        //         }
+        //     }
+        //     //EAASmSneJDqUBOyEbTkf4rdIKaXQscq78JWrqNrgwFwZBvv63toJZAJVcQTB1ZAx9RZANGYkB2KKnCDXXN43YVokk2NNbwkyzFBWHEu63xlNHZBn0Nd6OhWgFi6D4XTs2QZBVDFPUaXKoZAMmxl8aQY6teKZBTCJLnH3BlYXhQgOLauPKDxEkqknaWN4o0EHFFZBf1yZCcRaXBfL1wWAIagaDjvnb7FDvkZD
+
+        //     // Replace with your WhatsApp Cloud API endpoint and token
+        //     const apiUrl = 'YOUR_WHATSAPP_CLOUD_API_ENDPOINT';
+        //     const accessToken = 'EAASmSneJDqUBOyEbTkf4rdIKaXQscq78JWrqNrgwFwZBvv63toJZAJVcQTB1ZAx9RZANGYkB2KKnCDXXN43YVokk2NNbwkyzFBWHEu63xlNHZBn0Nd6OhWgFi6D4XTs2QZBVDFPUaXKoZAMmxl8aQY6teKZBTCJLnH3BlYXhQgOLauPKDxEkqknaWN4o0EHFFZBf1yZCcRaXBfL1wWAIagaDjvnb7FDvkZD';
+        //     const phoneNumberId = 'YOUR_WHATSAPP_PHONE_NUMBER_ID';
+        //     const recipientNumber = 'RECIPIENT_WHATSAPP_NUMBER'; // Include country code
+
+        //     try {
+        //         const response = await fetch(apiUrl, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Authorization': `Bearer ${accessToken}`,
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({
+        //                 messaging_product: 'whatsapp',
+        //                 to: recipientNumber,
+        //                 type: 'text',
+        //                 text: { body: message }
+        //             })
+        //         });
+
+        //         if (response.ok) {
+        //             alert('Form submitted successfully!');
+        //         } else {
+        //             throw new Error('Failed to submit form');
+        //         }
+        //     } catch (error) {
+        //         console.error('Error:', error);
+        //         alert('An error occurred while submitting the form.');
+        //     }
+        // });
+
+
+
+        document.getElementById('deliveryForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            let message = 'New Delivery Form Submission:\n\n';
+
+            for (let [key, value] of formData.entries()) {
+                if (key !== 'attachment') {
+                    message += `${key}: ${value}\n`;
+                }
+            }
+
+            const botToken = '7503769722:AAH2hj80Yywmhcxpe4Did-DhnNPAL3T48Iw';
+            const chatId = '7446033777';
+            const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+
+
+
+            const obj = {
+                chat_id: chatId,
+                text: 'hellooooo'
+            };
+
+
+
+
+            try {
+                const response = await fetch(telegramApiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj)
+                });
+
+                console.log(await response.json())
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the form.');
+            }
+        });
+    </script>
+</body>
+
+</html>
