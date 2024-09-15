@@ -22,11 +22,6 @@
             margin: 0 auto;
             padding: 0 20px;
             padding-bottom: 30px;
-
-            nav {
-                height: 130px;
-            }
-
         }
 
         label {
@@ -96,6 +91,10 @@
 
         .logo {
             width: 40%;
+
+            @media (max-width:530px) {
+                width: 60%;
+            }
         }
     </style>
 </head>
@@ -146,14 +145,16 @@
         </div>
 
         <div id="option2Inputs" class="option-inputs">
-            <label for="input2">select your option</label>
+            <label for="input2">Select your frame's size</label>
             <select name="size" id="">
                 <option value="15*21">15*21</option>
                 <option value="20*25">20*25</option>
                 <option value="30*20">30*20</option>
                 <option value="30*40">30*40</option>
             </select>
-            <select name="color" id="">
+            <label for="input3">Select your frame's color </label>
+
+            <select name="color" id="input3">
                 <option value="black">black</option>
                 <option value="white">white</option>
             </select>
